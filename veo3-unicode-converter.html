@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>Unicode Converter</title>
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #f5f5f5;
+    }
+    
+    h2 {
+      color: #333;
+      text-align: center;
+    }
+    
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 2px solid #ddd;
+      border-radius: 5px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    
+    textarea:focus {
+      outline: none;
+      border-color: #4CAF50;
+    }
+    
+    button {
+      display: block;
+      width: 200px;
+      margin: 20px auto;
+      padding: 12px 20px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+    
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      display: block;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>VEO3 Unicode Converter</h2>
+  
+  <label class="label" for="input">ข้อความต้นฉบับ:</label>
+  <textarea id="input" rows="6" placeholder="ใส่ข้อความที่ต้องการแปลง เช่น สวัสดี หรือ Hello ทดสอบ World"></textarea>
+  
+  <button onclick="convertText()">แปลง</button>
+  
+  <label class="label" for="output">ผลลัพธ์ Unicode:</label>
+  <textarea id="output" rows="6" placeholder="ผลลัพธ์ Unicode จะแสดงที่นี่..." readonly></textarea>
+  
+  <button id="copyButton" onclick="copyOutput()" style="display: none; margin-top: 10px; background-color: #2196F3;">
+    คัดลอกผลลัพธ์
+  </button>
+  
+  <div id="copyMessage" style="display: none; margin-top: 10px; padding: 10px; background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; border-radius: 5px; text-align: center;">
+    คัดลอกสำเร็จ! ✓
+  </div>
+  
+  <script>
+    function encodeThaiToUnicode(text) {
+      return [...text].map(ch => {
+        const code = ch.charCodeAt(0);
+        if (code >= 0x0E00 && code <= 0x0E7F) {
+          return "\\u" + code.toString(16).padStart(4, "0");
+        }
+        return ch;
+      }).join("");
+    }
+    
+    function convertText() {
+      let input = document.getElementById("input").value;
+      
+      // แปลงข้อความทั้งหมด
+      let output = encodeThaiToUnicode(input);
+      
+      document.getElementById("output").value = output;
+      
+      // แสดงปุ่มคัดลอกเมื่อมีผลลัพธ์
+      if (output) {
+        document.getElementById("copyButton").style.display = "block";
+      }
+    }
+    
+    function copyOutput() {
+      const outputText = document.getElementById("output").value;
+      
+      // คัดลอกข้อความไปยัง clipboard
+      navigator.clipboard.writeText(outputText).then(() => {
+        // แสดงข้อความแจ้งเตือน
+        const message = document.getElementById("copyMessage");
+        message.style.display = "block";
+        
+        // ซ่อนข้อความหลังจาก 2 วินาที
+        setTimeout(() => {
+          message.style.display = "none";
+        }, 2000);
+      }).catch(err => {
+        // กรณีเกิดข้อผิดพลาด
+        alert("ไม่สามารถคัดลอกได้: " + err);
+      });
+    }
+  </script>
+</body>
+</html>
