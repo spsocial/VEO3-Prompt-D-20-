@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEO3 Prompt D(20+) - ตัวช่วยเรื่องพรอมต์ที่ถูกกำจัด</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600;700&family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="logo-container">
+        <i class="fas fa-shield-alt logo-icon"></i>
+        <h1 class="logo-text">VEO3 Prompt D(20+)</h1>
+      </div>
+      <p class="subtitle">ตัวช่วยเรื่องพรอมต์ที่ถูกกำจัด | พรอมต์ 20+</p>
+    </header>
+
+    <main class="main-content">
+      <div class="info-card">
+        <i class="fas fa-info-circle"></i>
+        <p>แปลงข้อความภาษาไทยและอักขระพิเศษให้เป็นรหัส Unicode เพื่อหลีกเลี่ยงการถูกกรองหรือบล็อกในระบบต่างๆ</p>
+      </div>
+
+      <div class="input-section">
+        <div class="section-header">
+          <i class="fas fa-keyboard"></i>
+          <label for="input" class="label">ข้อความต้นฉบับ</label>
+        </div>
+        <div class="textarea-wrapper">
+          <textarea id="input" rows="6" placeholder="พิมพ์หรือวางข้อความที่ต้องการแปลง..."></textarea>
+          <button class="clear-btn" onclick="clearInput()" title="ล้างข้อความ">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="char-counter">
+          <span id="inputCharCount">0</span> ตัวอักษร
+        </div>
+      </div>
+
+      <div class="button-group">
+        <button class="convert-btn" onclick="convertText()">
+          <i class="fas fa-exchange-alt"></i>
+          <span>แปลงเป็น Unicode</span>
+        </button>
+        <button class="mode-btn" onclick="toggleMode()">
+          <i class="fas fa-cog"></i>
+          <span id="modeText">โหมดปกติ</span>
+        </button>
+      </div>
+
+      <div class="output-section">
+        <div class="section-header">
+          <i class="fas fa-code"></i>
+          <label for="output" class="label">ผลลัพธ์ Unicode</label>
+        </div>
+        <div class="textarea-wrapper">
+          <textarea id="output" rows="6" placeholder="ผลลัพธ์จะแสดงที่นี่..." readonly></textarea>
+        </div>
+        <div class="output-actions">
+          <button id="copyButton" class="action-btn copy-btn" onclick="copyOutput()">
+            <i class="fas fa-copy"></i>
+            <span>คัดลอก</span>
+          </button>
+          <button id="downloadButton" class="action-btn download-btn" onclick="downloadOutput()">
+            <i class="fas fa-download"></i>
+            <span>ดาวน์โหลด</span>
+          </button>
+          <button id="clearOutputButton" class="action-btn clear-output-btn" onclick="clearOutput()">
+            <i class="fas fa-trash"></i>
+            <span>ล้าง</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="notification" class="notification"></div>
+
+      <div class="history-section">
+        <h3 class="history-title">
+          <i class="fas fa-history"></i>
+          ประวัติการแปลง
+        </h3>
+        <div id="historyList" class="history-list"></div>
+      </div>
+
+      <div class="features">
+        <h3 class="features-title">คุณสมบัติพิเศษ</h3>
+        <div class="features-grid">
+          <div class="feature-card">
+            <i class="fas fa-lock feature-icon"></i>
+            <h4>ป้องกันการบล็อก</h4>
+            <p>แปลงข้อความให้ผ่านระบบกรอง</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-globe feature-icon"></i>
+            <h4>รองรับหลายภาษา</h4>
+            <p>ไทย, อังกฤษ และอักขระพิเศษ</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-bolt feature-icon"></i>
+            <h4>แปลงทันที</h4>
+            <p>ประมวลผลเร็วแบบ Real-time</p>
+          </div>
+          <div class="feature-card">
+            <i class="fas fa-mobile-alt feature-icon"></i>
+            <h4>Responsive Design</h4>
+            <p>ใช้งานได้ทุกอุปกรณ์</p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 VEO3 Prompt D(20+) - ตัวช่วยเรื่องพรอมต์ที่ถูกกำจัด</p>
+      <div class="social-links">
+        <a href="#" class="social-link" title="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="#" class="social-link" title="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="social-link" title="Facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
