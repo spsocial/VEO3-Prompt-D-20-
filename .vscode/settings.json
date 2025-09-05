@@ -1,0 +1,15 @@
+{
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.postCommitCommand": "push",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#6366f1",
+    "titleBar.activeBackground": "#6366f1",
+    "titleBar.activeForeground": "#ffffff"
+  },
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.root": "/",
+  "liveServer.settings.CustomBrowser": "chrome"
+}

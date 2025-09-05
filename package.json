@@ -1,0 +1,32 @@
+{
+  "name": "veo3-prompt-d20",
+  "version": "1.0.0",
+  "description": "VEO3 Prompt D(20+) - ตัวช่วยเรื่องพรอมต์ที่ถูกกำจัด",
+  "main": "index.html",
+  "scripts": {
+    "push": "git add -A && git commit -m \"Update: $(date +'%Y-%m-%d %H:%M:%S')\" && git push origin main",
+    "push-custom": "git add -A && read -p 'Commit message: ' msg && git commit -m \"$msg\" && git push origin main",
+    "quick-push": "git add -A && git commit -m \"Quick update\" && git push origin main",
+    "status": "git status",
+    "pull": "git pull origin main",
+    "serve": "npx live-server --port=8080",
+    "open": "start index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spsocial/VEO3-Prompt-D-20-.git"
+  },
+  "keywords": [
+    "unicode",
+    "converter",
+    "thai",
+    "prompt",
+    "veo3"
+  ],
+  "author": "spsocial",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spsocial/VEO3-Prompt-D-20-/issues"
+  },
+  "homepage": "https://github.com/spsocial/VEO3-Prompt-D-20-#readme"
+}

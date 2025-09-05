@@ -1,0 +1,55 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git Push",
+      "type": "shell",
+      "command": "git add -A && git commit -m \"${input:commitMessage}\" && git push origin main",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Git Quick Push",
+      "type": "shell",
+      "command": "git add -A && git commit -m \"Quick update: ${input:quickMessage}\" && git push origin main",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Git Status",
+      "type": "shell",
+      "command": "git status",
+      "group": "none",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      },
+      "problemMatcher": []
+    }
+  ],
+  "inputs": [
+    {
+      "id": "commitMessage",
+      "type": "promptString",
+      "description": "Enter commit message",
+      "default": "Update code"
+    },
+    {
+      "id": "quickMessage",
+      "type": "promptString",
+      "description": "Quick update message",
+      "default": "Minor fixes"
+    }
+  ]
+}
