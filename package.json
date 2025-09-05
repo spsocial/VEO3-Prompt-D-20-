@@ -33,5 +33,8 @@
   "bugs": {
     "url": "https://github.com/spsocial/VEO3-Prompt-D-20-/issues"
   },
-  "homepage": "https://github.com/spsocial/VEO3-Prompt-D-20-#readme"
+  "homepage": "https://github.com/spsocial/VEO3-Prompt-D-20-#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  }
 }
